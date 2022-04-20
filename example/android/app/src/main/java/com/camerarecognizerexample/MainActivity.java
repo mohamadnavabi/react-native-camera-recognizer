@@ -1,4 +1,4 @@
-package com.example.reactnativecamerarecognizer;
+package com.camerarecognizerexample;
 
 import com.facebook.react.ReactActivity;
 

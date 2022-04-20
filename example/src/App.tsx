@@ -1,13 +1,16 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-camera-recognizer';
+import CameraRecognizer from 'react-native-camera-recognizer';
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
   React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+    CameraRecognizer.paymentCard(true).then((result: any) => {
+      console.log('result:', result);
+      setResult(result.PAN);
+    });
   }, []);
 
   return (

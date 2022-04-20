@@ -7,7 +7,8 @@ buildscript {
         }
 
         dependencies {
-            classpath 'com.android.tools.build:gradle:3.5.3'
+            classpath 'com.android.tools.build:gradle:4.2.2'
+            classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         }
     }
 }
@@ -19,10 +20,10 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-    compileSdkVersion safeExtGet('CameraRecognizer_compileSdkVersion', 29)
+    compileSdkVersion safeExtGet('CameraRecognizer_compileSdkVersion', 31)
     defaultConfig {
         minSdkVersion safeExtGet('CameraRecognizer_minSdkVersion', 16)
-        targetSdkVersion safeExtGet('CameraRecognizer_targetSdkVersion', 29)
+        targetSdkVersion safeExtGet('CameraRecognizer_targetSdkVersion', 31)
         versionCode 1
         versionName "1.0"
 
@@ -40,6 +41,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    sourceSets {
+      main.java.srcDirs += 'lib/src/main/java'
+    }
 }
 
 repositories {
@@ -48,12 +53,16 @@ repositories {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
         url("$rootDir/../node_modules/react-native/android")
     }
+    maven {
+        url 'https://maven.google.com'
+    }
     google()
     mavenCentral()
     jcenter()
 }
 
 dependencies {
+    implementation 'com.github.arefbhrn:IRDebitCardScanner:1.0.0'
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
 }
