@@ -1,8 +1,21 @@
 package com.camerarecognizerexample;
 
+import android.app.Activity;
+import android.os.Bundle;
+
 import com.facebook.react.ReactActivity;
 
 public class MainActivity extends ReactActivity {
+  private static Activity mCurrentActivity = null;
+
+  protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      mCurrentActivity = this;
+  }
+
+  public static Activity getActivity(){
+      return mCurrentActivity;
+  }
 
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule

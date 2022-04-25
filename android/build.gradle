@@ -56,13 +56,13 @@ repositories {
     maven {
         url 'https://maven.google.com'
     }
+    maven { url 'https://jitpack.io' }
     google()
     mavenCentral()
     jcenter()
 }
 
 dependencies {
-    implementation 'com.github.arefbhrn:IRDebitCardScanner:1.0.0'
-    //noinspection GradleDynamicVersion
-    implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation "com.facebook.react:react-native:+"
+    implementation "com.github.mohamadnavabi:payment-card-scanner:1.0.1"
 }
